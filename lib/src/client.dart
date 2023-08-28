@@ -215,6 +215,8 @@ class UploadClient {
     _status = UploadStatus.cancelled;
     cache.delete(fingerPrint);
     clearCache();
+    CancelToken? videoCancelToken;
+    videoCancelToken!.cancel();
     throw ResumableUploadException('User cancelled upload!');
   }
 
